@@ -13,6 +13,14 @@
   "keywords": [],
   "author": "Anthony Ngene",
   "license": "ISC",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "clear": "0.0.1",
+    "clui": "^0.3.1",
+    "figlet": "^1.2.0",
+    "inquirer": "^3.0.1",
+    "request": "^2.79.0"
+  },
   "bugs": {
     "url": "https://github.com/tonymontaro/andela-http-api/issues"
   },
