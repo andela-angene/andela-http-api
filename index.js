@@ -76,6 +76,45 @@ function findBook() {
         }); 
 }
 
+//Function to get the Address, Longitude and Latitude of a location
+function getLocation() {
+    inquirer.prompt([ {
+            type: 'input',
+            name: 'location',
+            message: 'What location are you searching for?  '
+        },
+        ]).then(function (answer) {
+            var location    = answer.location.split(/\s+/).join('+');
+            if (location === '+') {
+                console.log('No argument was provided\n');
+                exitApp();
+            };
+
+            var link = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + location + '&sensor=false';
+            console.log(link);
+            var status = new Spinner('Getting requested information, please wait...');
+            status.start();
+            request(link, function (err, res, data){
+                if (err) return console.log(err);
+                data = JSON.parse(data);
+                status.stop();
+                console.log(chalk.green('\n Result: \n'));
+
+                //Exit if nothing was found
+                if (data.results.length === 0) {
+                    console.log('Nothing found \n')
+                    return exitApp();
+                };
+
+                //Display location details
+                console.log(chalk.yellow('Address: ') + data.results[0].formatted_address);
+                console.log(chalk.yellow('Latitude: ') + data.results[0].geometry.location.lat);
+                console.log(chalk.yellow('Longitude: ') + data.results[0].geometry.location.lng + '\n');
+                exitApp();
+            });
+        }); 
+}
+
 //Function that starts the app
 function startApp() {
     inquirer.prompt([ {
