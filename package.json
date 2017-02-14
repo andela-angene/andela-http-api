@@ -1,0 +1,20 @@
+{
+  "name": "andela-http-api",
+  "version": "1.0.0",
+  "description": "A simple command line application that consumes a Public API using a HTTP client library.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonymontaro/andela-http-api.git"
+  },
+  "keywords": [],
+  "author": "Anthony Ngene",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonymontaro/andela-http-api/issues"
+  },
+  "homepage": "https://github.com/tonymontaro/andela-http-api#readme"
+}
